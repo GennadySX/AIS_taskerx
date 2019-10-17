@@ -1,0 +1,22 @@
+{
+  "name": "taskerx",
+  "version": "1.0.0",
+  "description": "Самостоятельная работа по учебу АИС",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gennadysx/taskerx.git"
+  },
+  "author": "GennadySX",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gennadysx/taskerx/issues"
+  },
+  "homepage": "https://github.com/gennadysx/taskerx#readme",
+  "dependencies": {
+    "angular": "^1.7.8"
+  }
+}
