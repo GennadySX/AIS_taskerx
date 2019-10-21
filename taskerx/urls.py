@@ -24,7 +24,9 @@ from rest_framework.views import APIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', BoardView.as_view()),
-    path('', Front.index)
+    path('api/board/', BoardView.as_view()),
+    path('api/panel/', PanelView.as_view()),
+    path('', Front.index),
+
 
 ]
