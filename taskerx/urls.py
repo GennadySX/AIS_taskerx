@@ -24,10 +24,10 @@ from rest_framework.views import APIView
 from ais import forms as task
 
 urlpatterns = [
+    path('', aisView.index),
     path('admin/', admin.site.urls),
     path('api/board/', BoardView.as_view()),
     path('api/panel/', PanelView.as_view()),
-    path('', aisView.index),
     path('ais/', aisView.index),
     path('task/', task.add_task, name='task'),
     path('tasks/', task.task, name='task'),
@@ -35,3 +35,4 @@ urlpatterns = [
     path('signup/',  aisView.signup),
 
 ]
+

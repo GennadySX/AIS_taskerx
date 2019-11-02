@@ -66,3 +66,5 @@ def change_task(request, id):
     else:
         form = TaskModelForm(instance=t)
     return render(request, 'ais/add_task.html', {'form': form})
+
+

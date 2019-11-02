@@ -8,7 +8,7 @@ from ais.forms import *
 
 class aisView:
     def index(request):
-        return render(request, 'dashboard/index.html')
+        return render(request, 'main/index.html')
 
     def login(request):
         if request.method == 'POST':
