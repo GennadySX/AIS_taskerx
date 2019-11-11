@@ -91,8 +91,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'taskerx',
-        'USER': 'tasker',
-        'PASSWORD': 'greenps',
+        'USER': 'postgres',
+        'PASSWORD': '',
         'HOST': 'localhost'
     }
 }
