@@ -43,6 +43,7 @@ class TaskFiles(models.Model):
 
 class Advantage(models.Model):
     task = models.ForeignKey(Task, verbose_name='Задача', on_delete=models.CASCADE)
+    username = models.CharField(verbose_name='Имя', max_length=255, default='user')
     name = models.CharField(verbose_name='Название', max_length=255)
     about = models.TextField(verbose_name='Про достижение',)
     start_date = models.DateField(verbose_name='Начала времени',default=timezone.now)

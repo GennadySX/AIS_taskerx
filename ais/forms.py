@@ -13,7 +13,7 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2',)
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
 
 class LoginForm(UserCreationForm):
     class Meta:
@@ -67,4 +67,9 @@ def change_task(request, id):
         form = TaskModelForm(instance=t)
     return render(request, 'ais/add_task.html', {'form': form})
 
+
+class AdvantagesForm(forms.ModelForm):
+    class Meta:
+        model = Advantage
+        fields = ('username', 'name', 'about', 'task')
 
