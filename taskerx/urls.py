@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth.views import LoginView
+
 from django.urls import path, include
 from django.views.generic import RedirectView
 from django.conf import settings
@@ -22,17 +24,13 @@ from rest.views import *
 from ais.views import *
 from rest_framework.views import APIView
 from ais import forms as task
+from ais import urls as ais_urls
 
 urlpatterns = [
-    path('', aisView.index),
+    path('', include('ais.urls')),
     path('admin/', admin.site.urls),
     path('api/board/', BoardView.as_view()),
     path('api/panel/', PanelView.as_view()),
-    path('ais/', aisView.index),
-    path('task/', task.add_task, name='task'),
-    path('tasks/', task.task, name='task'),
-    path('login/',  aisView.login),
-    path('signup/',  aisView.signup),
 
 ]
 

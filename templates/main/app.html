@@ -42,11 +42,9 @@
                         <ul>
                             <li class="active"><a href="/"><span>Главный</span></a></li>
                             <li><a href="/advantages"><span>Достижение</span></a></li>
-                            <li><a href="/about"><span>О проекта</span></a></li>
-                            <li><a href="/blog"><span>Блог</span></a></li>
                             {% if user.is_authenticated %}
                                 <li><a href="/admin"><span>Кабинет</span></a></li>
-                                <li><a href="/admin/logout/"><span>Выйти</span></a></li>
+                                <li><a href="/logout"><span>Выйти</span></a></li>
                             {% else %}
                                 <li><a href="/login"><span>Войти</span></a></li>
                             {% endif %}
@@ -61,7 +59,7 @@
         <header>
             <div class="container">
                 <div class="colorlib-navbar-brand">
-                    <a class="colorlib-logo" href="index.html">TaskerX<span> АИС</span></a>
+                    <a class="colorlib-logo" href="/">TaskerX<span> АИС</span></a>
                 </div>
                 <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
             </div>
@@ -70,18 +68,84 @@
         {% block content %}{% endblock %}
 
 
-        <footer class="footer d-flex align-items-center">
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                &copy;<script>document.write(new Date().getFullYear());</script>
-                Все права защищены по автора сайта <br>
-                Данный шаблон сайта скопирован из сайта <i class="icon-heart" aria-hidden="true"></i> <a
-                        href="https://colorlib.com" target="_blank">Colorlib</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-            <ul class="footer-social">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-            </ul>
+        <footer class="ftco-footer ftco-section img">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row mb-5 ">
+                    <div class="col-lg-4">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2 logo"><a href="/">TaskerX<span> АИС</span></a></h2>
+                            <p>Проект создан для сдача лаб/ по АИС от <a href="https://gennadysx.com" target="_blank">GennadySX.</a>
+                            </p>
+                            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                                <li class="ftco-animate"><a href="https://twitter.com/gennadysx"><span
+                                        class="icon-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="https://fb.com/gennadysx"><span
+                                        class="icon-facebook"></span></a></li>
+                                <li class="ftco-animate"><a href="https://instagram.com/gennadysx"><span
+                                        class="icon-instagram"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2">Не давные достижение</h2>
+                            <div class="block-21 mb-4 d-flex">
+                                <a class="blog-img mr-4"
+                                   style="background-image: url({% static 'main/images/image_1.jpg' %});"></a>
+                                <div class="text">
+                                    <h3 class="heading"><a href="#">X?0</a></h3>
+                                    <div class="meta">
+                                        <div><a href="#"><span class="icon-calendar"></span> 07.11.2019</a></div>
+                                        <div><a href="#"><span class="icon-person"></span> GennadySX</a></div>
+                                        <div><a href="#"><span class="icon-chat"></span> 0</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-21 mb-4 d-flex">
+                                <a class="blog-img mr-4"
+                                   style="background-image: url({% static 'main/images/image_2.jpg' %});"></a>
+                                <div class="text">
+                                    <h3 class="heading"><a href="#">X?01</a></h3>
+                                    <div class="meta">
+                                        <div><a href="#"><span class="icon-calendar"></span> 07.11.2019</a></div>
+                                        <div><a href="#"><span class="icon-person"></span> GennadySX</a></div>
+                                        <div><a href="#"><span class="icon-chat"></span> 0</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="ftco-footer-widget mb-4 ml-md-4">
+                            <h2 class="ftco-heading-2">Карта проекта</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="/" class="py-2 d-block">Главный</a></li>
+                                <li><a href="/advantages" class="py-2 d-block">Достижение</a></li>
+                                {% if user.is_authenticated %}
+                                    <li><a href="/admin" class="py-2 d-block">Кабинет</a></li>
+                                    <li><a href="/logout" class="py-2 d-block">Выйти</a></li>
+                                {% else %}
+                                    <li><a href="/login" class="py-2 d-block">Войти</a></li>
+                                {% endif %}
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            Все правы защищены | Этот дизайн и шаблон разработан <i class="icon-heart"
+                                                                                    aria-hidden="true"></i> от <a
+                                    href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+            </div>
         </footer>
 
 
@@ -96,6 +160,7 @@
 
     </div>
 </div>
+
 
 <script src="{% static 'main/js/jquery.min.js' %}"></script>
 <script src="{% static 'main/js/jquery-migrate-3.0.1.min.js' %}"></script>

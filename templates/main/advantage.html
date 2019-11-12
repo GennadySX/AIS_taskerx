@@ -1,0 +1,53 @@
+{% extends 'main/app.html' %}
+{% load static %}
+
+
+{% block content %}
+    <section class="hero-wrap">
+        <div class="overlay"></div>
+        <div class="container-fluid px-0">
+            <div class="row no-gutters text align-items-center justify-content-center" data-scrollax-parent="true">
+                <div class="col-md-12 ftco-animate text-center">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">АИС</a></span>
+                        <span>Достижение</span>
+
+                    </p>
+                    <h1 class="bread">Список Достижении</h1>
+                    <div class="btn-create mt-5 ">
+                        <div class="col text-center">
+                            <div class="block-27">
+                                <button class="btn btn-warning font-weight-bold" style="background: #a3816a; border: none">Создать достижение</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-no-pt">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-4 ftco-animate">
+                    <div class="project">
+                        <a href="1/" class="img d-flex align-items-center justify-content-center"
+                           style="background-image:url({% static 'main/images/work-1.jpg' %});">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="ion-ios-search"></span>
+                            </div>
+                        </a>
+                        <div class="text">
+                            <span class="subheading">Interior Design</span>
+                            <h3 class="mb-0"><a href="#">White Sofas</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
+

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib import auth
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
@@ -21,6 +22,10 @@ class aisView:
                 return HttpResponseRedirect('/admin/')
         return render(request, 'auth/index.html')
 
+    def logout(request):
+        auth.logout(request)
+        return HttpResponseRedirect('/');
+
     def signup(request):
         if request.method == 'POST':
             form = SignUpForm(request.POST)
@@ -39,3 +44,6 @@ class aisView:
         else:
             form = UserCreationForm()
         return render(request, 'auth/signUp.html', {'form': form})
+
+    def advantages(request):
+        return render(request, 'main/advantage.html')
