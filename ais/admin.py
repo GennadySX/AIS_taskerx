@@ -12,5 +12,6 @@ class TaskAdmin(admin.ModelAdmin):
 admin.site.register(Task, TaskAdmin)
 admin.site.register(TaskFiles)
 admin.site.register(Advantage)
+admin.site.register(Feedback)
 
 

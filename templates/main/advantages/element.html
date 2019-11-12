@@ -4,47 +4,89 @@
 
 {% block content %}
 
-       <section class="hero-wrap">
-      	<div class="overlay"></div>
-	      <div class="container-fluid px-0">
-	        <div class="row no-gutters text align-items-center justify-content-center" data-scrollax-parent="true">
-	          <div class="col-md-12 ftco-animate text-center">
-	            <p class="breadcrumbs"><span class="mr-2"><a href="/">Главный</a></span><span class="mr-2"><a href="/advantages" class="text-light">Достижение</a></span></p>
-	            <h1 class="bread">{{ adv.name }}</h1>
-	          </div>
-	        </div>
-	      </div>
-      </section>
+    <section class="hero-wrap">
+        <div class="overlay"></div>
+        <div class="container-fluid px-0">
+            <div class="row no-gutters text align-items-center justify-content-center" data-scrollax-parent="true">
+                <div class="col-md-12 ftco-animate text-center">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/">Главный</a></span><span class="mr-2"><a
+                            href="/advantages" class="text-light">Достижение</a></span></p>
+                    <h1 class="bread">{{ adv.name }}</h1>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	    <section class="ftco-section ftco-no-pt ftco-no-pb ftco-about ftco-counter">
-	    	<div class="container">
-		    	<div class="row no-gutters d-flex">
-	    			<div class="col-md-12 col-lg-6 d-flex align-items-stretch">
-	    				<div class="img-about img d-flex align-items-stretch">
-		    				<div class="img d-flex align-self-stretch align-items-center" style="background-image:url({% static 'main/images/about.jpg' %});">
-		    				</div>
-	    				</div>
-	    			</div>
-	    			<div class="col-md-12 col-lg-6 pl-lg-5 py-5 d-flex align-items-center">
-	    				<div class="p-0 px-lg-5 p-lg-0">
-		    				<div class="row justify-content-start pb-3">
-				          <div class="col-md-12 heading-section ftco-animate">
-				          	<span class="subheading">{{ adv.username }}</span>
-				            <h2 class="mb-4">{{ adv.name }}</h2>
-				            <p>{{ adv.about }}</p>
-				          </div>
-				        </div>
-			          <div class="counter-wrap mb-0 ftco-animate d-flex mt-md-3">
-		              <div class="text">
-		              	<p class="mb-0">
-			                <span class="number" data-number="{{ see }}">0</span>
-			                <span>Просмотров</span>
-		                </p>
-		              </div>
-			          </div>
-		          </div>
-		        </div>
-	        </div>
-	      </div>
-	    </section>
+    <section class="ftco-section ftco-no-pt ftco-no-pb ftco-about ftco-counter">
+        <div class="container">
+            <div class="row no-gutters d-flex">
+                <div class="col-md-12 col-lg-6 d-flex align-items-stretch">
+                    <div class="img-about img d-flex align-items-stretch">
+                        <div class="img d-flex align-self-stretch align-items-center"
+                             style="background-image:url({% static 'main/images/work-1.jpg' %});">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 pl-lg-5 py-5 d-flex align-items-center">
+                    <div class="p-0 px-lg-5 p-lg-0">
+                        <div class="row justify-content-start pb-3">
+                            <div class="col-md-12 heading-section ftco-animate">
+                                <span class="subheading">{{ adv.username }}</span>
+                                <h2 class="mb-4">{{ adv.name }}</h2>
+                                <p>{{ adv.about }}</p>
+                            </div>
+                        </div>
+                        <div class="counter-wrap mb-0 ftco-animate d-flex mt-md-3">
+                            <div class="text">
+                                <p class="mb-0">
+                                    <span class="number" data-number="{{ see }}">0</span>
+                                    <span>Просмотров</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-5 mt-5">
+                <h3 class="mb-5">{{ count_feed }} Отзывы</h3>
+                <ul class="comment-list">
+                    {%  for comment in comments %}
+                    <li class="comment">
+                        <div class="vcard bio">
+                            <img src="{% static 'main/images/person_1.jpg' %}" alt="Image placeholder">
+                        </div>
+                        <div class="comment-body bg-black">
+                            <h3>{{ comment.username }}</h3>
+                            <div class="meta">{{ comment.created_at }}</div>
+                            <p>{{ comment.feedback }}</p>
+                        </div>
+                    </li>
+                    {%  endfor %}
+                </ul>
+
+
+
+                <div class="comment-form-wrap pt-5">
+                    {% if user.is_authenticated %}
+                        <h3 class="mb-5">Ваш отзыв</h3>
+                        <form  class="comment-form" action="{{ request.path }}" method="post">
+                        {% csrf_token %}
+                            <input type="hidden" value="{{ user.username }}" name="username">
+                            <input type="hidden" value="{{ user.id }}" name="user">
+                            <input type="hidden" value="{{ adv.id }}" name="advantage">
+                            <div class="form-group">
+                                <label for="message">Комментария</label>
+                                <textarea name="feedback" id="feedback" cols="30" rows="10" class="form-control" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Отправить" class="btn py-3 px-4 btn-primary">
+                            </div>
+
+                        </form>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+    </section>
 {% endblock %}

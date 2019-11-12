@@ -55,9 +55,15 @@ class aisView:
         return render(request, 'main/advantages/advantage.html', {'adv_list': adv})
 
     def advantage_byId(request, adv_id):
+        if request.method == 'POST':
+            form = FeedbackForm(request.POST or None)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         adv = Advantage.objects.filter(id=adv_id).get()
+        feedbacks = Feedback.objects.all().filter(advantage=adv_id)
         see = random.randint(0, 100)
-        return render(request, 'main/advantages/element.html', {'adv': adv, 'see': see})
+        return render(request, 'main/advantages/element.html', {'adv': adv, 'see': see, 'comments': feedbacks, "count_feed": feedbacks.count()})
 
     def advantageCreate(request):
         if request.method == 'POST':
@@ -69,3 +75,14 @@ class aisView:
                 return HttpResponse(form, content_type='application/json')
         tasks = Task.objects.all()
         return render(request, 'main/advantages/create.html', {'tasks': tasks})
+
+    def feedback(request):
+        if request.method == 'POST':
+            form = FeedbackForm(request.POST or None)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+            else:
+                return HttpResponse(form, content_type='application/json')
+        tasks = Task.objects.all()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))

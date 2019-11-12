@@ -56,3 +56,17 @@ class Advantage(models.Model):
     class Meta:
         verbose_name = 'Достижение'
         verbose_name_plural = 'Достижение'
+
+
+class Feedback(models.Model):
+    advantage = models.ForeignKey(Advantage, verbose_name='Достижение', on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='Юзер', on_delete=models.DO_NOTHING)
+    username = models.CharField(verbose_name='Имя пользователя', max_length=255)
+    feedback = models.TextField(verbose_name='Отзыв',)
+    created_at = models.DateField(verbose_name='Создан', default=timezone.now)
+
+    def __str__(self):
+        return self.username
+    class Meta:
+        verbose_name = 'Отзывы'
+        verbose_name_plural = 'Отзывы'

@@ -73,3 +73,8 @@ class AdvantagesForm(forms.ModelForm):
         model = Advantage
         fields = ('username', 'name', 'about', 'task')
 
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = ('username', 'user', 'feedback', 'advantage')
+
