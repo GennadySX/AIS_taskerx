@@ -61,7 +61,7 @@ class aisView:
                 form.save()
                 return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         adv = Advantage.objects.filter(id=adv_id).get()
-        feedbacks = Feedback.objects.all().filter(advantage=adv_id)
+        feedbacks = Feedback.objects.filter(advantage=adv.id)
         see = random.randint(0, 100)
         return render(request, 'main/advantages/element.html', {'adv': adv, 'see': see, 'comments': feedbacks, "count_feed": feedbacks.count()})
 
