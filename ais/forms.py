@@ -15,6 +15,7 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
 
+
 class LoginForm(UserCreationForm):
     class Meta:
         model = User
@@ -71,10 +72,13 @@ def change_task(request, id):
 class AdvantagesForm(forms.ModelForm):
     class Meta:
         model = Advantage
-        fields = ('username', 'name', 'about', 'task')
+        fields = ('username', 'name', 'about', 'task', 'see')
+
+
+
+
 
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
         fields = ('username', 'user', 'feedback', 'advantage')
-
