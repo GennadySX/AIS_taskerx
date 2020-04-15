@@ -91,8 +91,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'taskerx',
-        'USER': 'postgres',
-        'PASSWORD': '',
+        'USER': 'tasker',
+        'PASSWORD': 'greenps',
         'HOST': 'localhost'
     }
 }
@@ -139,3 +139,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "front/static"),
     '/front/static',
 ]
+FILE_UPLOAD_PERMISSIONS = 0o640
